@@ -1,0 +1,31 @@
+Sub  DataMartket()	
+‘ set the Ticker as  a String’
+Dim Ticker as a string
+‘ set an initial variable for Total_Stock_Volume  as a double’
+Dim Total_Stock_Volume   as  Double
+ Total_Stock_Volume= 0
+‘ Keep to track for holding the total volume for each Ticker’
+Dim Summary_Table_Row  as  Integer
+ Summary_Table_Row = 2
+‘loop through all the Ticker’
+For I = 2 to 70926
+ ‘ verify if we are within the same Ticker’
+ If cells(i+1, 1).Value <> Cells(I,1).Value Then
+ ‘ set the Ticker name’
+Ticker = Cells(I, 1).Value
+‘Add to the volume Total’
+Total_Stock_Volume= Total_Stock_Volume + Cells(I , 7).Value
+‘ print the Ticker in the summary table’
+Range(“H” &  Summary_Table_Row).Value =Ticker
+‘print the Total Stock Volume in the Summary table’
+Range(“I” &  Summary_Table_Row).Value = Total_Stock_Volue
+‘add one the summary table row’
+Summary_Table_Row = Summary_Table_Row + 1
+‘ reset the total stock volume’
+Total_Stock_Volume = 0
+Else
+‘ add the total stock volume’
+Total_Stock_Volume = Total_Stock_Volume + Cells(I, 7).Value
+End If
+Next I
+End Sub
